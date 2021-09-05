@@ -5,13 +5,14 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="stylesheet" type="text/css" href="style.css">
+      <link rel="stylesheet" type="text/css" href="act/flog/login.css">
+      <link rel="stylesheet" type="text/css" href="act/fsign/sgup.css">
       <link rel="stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
       <title>Document</title>
    </head>
    <body>
-      <div id="container">
-      </div>
+      
       <nav class="main-menu">
          <div>
             <a class="logo" href="#">
@@ -87,7 +88,7 @@
             </a>
             </li>
             <li class="darkerli">
-            <a href="music.html">
+            <a href="#">
             <i class="fa fa-microphone fa-lg"></i>
             <span class="nav-text">Film & Music</span>
             </a>
@@ -148,10 +149,87 @@
          </li>  
          </ul>
       </nav>
-      <div id="content" style="position: absolute; top: 800px;">
-      <link rel="stylesheet" type="text/css" href="act/flog/login.css">
-      </div>
-      </div>
+      <div class="content">
+          <div class="row">
+              <div class="col-md-3"> 
+                  <a href="#" id="al1">
+                      <div class="album">
+                        <div class="album-img" > 
+                            <img src="/photo/album1.jpg" alt="">
+                        </div>
+                         <h3>PlayList 1 </h3>
+                         <p>By me</p> 
+                      </div>
+                  </a>
+              </div>
+
+              <div class="col-md-3"> 
+                <a href="#" id="al2">
+                    <div class="album">
+                      <div class="album-img" > 
+                          <img src="/photo/album2.jpg" alt="">
+                      </div>
+                       <h3>PlayList 2</h3>
+                       <p>By me</p> 
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-3"> 
+                <a href="#" id="al3">
+                    <div class="album">
+                      <div class="album-img" > 
+                          <img src="/photo/album3.jpg" alt="">
+                      </div>
+                       <h3>PlayList 3</h3>
+                       <p>By me</p> 
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-3"> 
+                <a href="#" id="al4">
+                    <div class="album">
+                      <div class="album-img" > 
+                          <img src="/photo/album4.jpg" alt="">
+                      </div>
+                       <h3>PlayList 4</h3>
+                       <p>By me</p> 
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-3"> 
+                <a href="#" id="al5">
+                    <div class="album">
+                      <div class="album-img" > 
+                          <img src="/photo/album5.jpg" alt="">
+                      </div>
+                       <h3>PlayList 5</h3>
+                       <p>By me</p> 
+                    </div>
+                </a>
+            </div>
+              
+              
+          </div>
+          <div class="play">
+              <a href="#" id="btnOpen">
+                <i class="fa fa-angle-up" aria-hidden="true"></i>
+              </a>
+              <a href="#" id="btnClose" style="display: none;">
+                <i class="fa fa-angle-down" aria-hidden="true"></i>
+              </a>
+            <iframe id="play1" src="https://open.spotify.com/embed/artist/6OzE2OdvV2tGAxSBsBuZ74" width="100%" height="380" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            <iframe style="display: none;" id="play2" src="https://open.spotify.com/embed/playlist/0hyHO7b1Q7O0LU29tg8Ovu" width="100%" height="380" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            <iframe style="display: none;" id="play3" src="https://open.spotify.com/embed/playlist/46399DVvKXbfyHCAwsyKKY" width="100%" height="380" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            <iframe style="display: none;" id="play4" src="https://open.spotify.com/embed/playlist/7teRQAX3UP4mkH8tDQJir6" width="100%" height="380" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            <iframe style="display: none;" id="play5" src="https://open.spotify.com/embed/playlist/0s97iTaNzSFGlXhDPzjyN4" width="100%" height="380" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+          
+
+        </div>
+
+        </div>
       <!-- Modal -->
       <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
          <div class="modal-dialog" role="document">
@@ -235,6 +313,62 @@
           $('#exampleModalLong').modal('show');
         });
 
+        // 
+        $(".main-menu").on("mouseenter", function() {
+            $(".content").css("margin-left", "250px");
+            $(".play").css("margin-left", "195px");
+        });
+        $(".main-menu").on("mouseleave", function() {
+            $(".content").css("margin-left", "55px");
+            $(".play").css("margin-left", "0px");
+        });
+
+        $("#al1").click(function() {
+            $("#play1").show();
+            $("#play2").hide();
+            $("#play3").hide();
+            $("#play4").hide();
+            $("#play5").hide();
+        });
+        $("#al2").click(function() {
+            $("#play1").hide();
+            $("#play2").show();
+            $("#play3").hide();
+            $("#play4").hide();
+            $("#play5").hide();
+        });
+        $("#al3").click(function() {
+            $("#play1").hide();
+            $("#play2").hide();
+            $("#play3").show();
+            $("#play4").hide();
+            $("#play5").hide();
+        });
+        $("#al4").click(function() {
+            $("#play1").hide();
+            $("#play2").hide();
+            $("#play3").hide();
+            $("#play4").show();
+            $("#play5").hide();
+        });
+        $("#al5").click(function() {
+            $("#play1").hide();
+            $("#play2").hide();
+            $("#play3").hide();
+            $("#play4").hide();
+            $("#play5").show();
+        });
+
+        $("#btnOpen").click(function() {
+            $(".play").css("height", "380px");
+            $("#btnClose").show();
+            $("#btnOpen").hide();
+        })
+        $("#btnClose").click(function() {
+            $(".play").css("height", "80px");
+            $("#btnClose").hide();
+            $("#btnOpen").show();
+        })
       </script>
     </body>
 
