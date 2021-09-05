@@ -9,7 +9,7 @@ body {
   box-sizing: border-box;
   }
   .register {
-  width: 500px;
+  width: 100%;
   padding: 16px;
   margin: 0 auto;
   background-color: white;
