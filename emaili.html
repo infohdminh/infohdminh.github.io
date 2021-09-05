@@ -149,35 +149,200 @@
          </ul>
       </nav>
        <div class="content">
-        <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="act/countd/cd.css">
-    <title>Birthday Countdown</title>
-</head>
-<body>
-    <div class="container cdo">
-        <h1 id="headline">Countdown to MinhHandSome's birthday:</h1>
-        <div id="countdown">
-          <ul>
-            <li><span id="days"></span>days</li>
-            <li><span id="hours"></span>Hours</li>
-            <li><span id="minutes"></span>Minutes</li>
-            <li><span id="seconds"></span>Seconds</li>
-          </ul>
-        </div>
-        <div id="content" class="emoji">
-         
-          <span>🎉</span>
-          <span>🎂</span>
-        </div>
-      </div>
-      <script src="act/countd/cd.js"></script>
-</body>
-</html>
+        <form class="hiuoee" name="extractor">
+            <table>
+              <tbody><tr>
+                <td>
+                  <table class="inner">
+                    <tbody><tr class="titlebarcolor">
+                      <td colspan="2" valign="TOP"><h2 align="center"><font class="titlefont"><strong>Email
+                              Extractor</strong></font></h2>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td align="CENTER" colspan="2" valign="TOP">
+                        <script language="JAVASCRIPT">
+  var introtext = 'Sao chép văn bản từ bất kỳ nguồn nào và dán vào đây. Sau đó bấm vào nút giải nén. Bạn có thể chọn dấu phân tách khác nhau (hoặc nhập của riêng bạn), nhóm một số email và sắp xếp các email được trích xuất theo thứ tự bảng chữ cái.';
+  document.write('<TEXTAREA NAME="rawdata" rows=12 cols=50 onFocus="if (this.value == introtext) this.value = \'\';">' + introtext + '</TEXTAREA>');
+              </script>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td align="LEFT" colspan="2" valign="TOP"> Separator:
+                          <select name="sep">
+                            <option value=",">Comma</option>
+                            <option value="">Pipe</option>
+                            <option value="">Colon</option>
+                            <option value="new">New Line</option>
+                            <option value="other">Other</option>
+                          </select>
+                          <input name="othersep" onblur="checksep(this.value)" size="3" type="TEXT" />
+  &nbsp;&nbsp; Group:
+                      <input name="groupby" onblur="numonly(this.value)" size="3" type="TEXT" />
+                      Emails &nbsp;&nbsp;
+                      <label>
+                      <input id="sortbox" name="sort" type="CHECKBOX" />
+                      Sort Alphabetically</label>
+                      </td>
+                    </tr>
+                    <tr valign="TOP">
+                      <td align="LEFT">
+                        <input class="submit" name="BUTTON" onclick="findEmail()" type="BUTTON" value="Extract" />
+                        <input class="submit" name="RESET" type="RESET" value="Reset" />
+                        <script language="JavaScript" type="text/javascript">
+ 
+  if ((navigator.appName=="Microsoft Internet Explorer")&&(parseInt(navigator.appVersion)>=4)) {
+     document.write('<INPUT TYPE="BUTTON" CLASS="buttonsubmit" VALUE="Copy To Clipboard" onClick="copy();">');
+  } else {
+     document.write('<INPUT TYPE="BUTTON" CLASS="button submit" VALUE="Copy To Clipboard" onClick="highlight();">');
+  }
+ 
+              </script>
+                      </td>
+                      <td align="RIGHT" nowrap="" valign="BOTTOM"> Email count:
+                          <input name="count" readonly="" size="5" />
+                      </td>
+                    </tr>
+                  </tbody></table>
+                </td>
+              </tr>
+            </tbody></table>
+          </form>
+          <script language="JAVASCRIPT" type="text/javascript">
+ 
+  
+  // Created and Copyrighted by Benjamin Leow
+  // Please go to http://www.surf7.net for latest version and more freeware
+  
+  function copy() {
+  highlight();
+  textRange = document.extractor.rawdata.createTextRange();
+  textRange.execCommand("RemoveFormat");
+  textRange.execCommand("Copy");
+  window.alert("The content has been copied to your clipboard.");
+  }
+  
+  function highlight(){
+  document.extractor.rawdata.focus()
+  document.extractor.rawdata.select()
+  }
+  
+  function checksep(value){
+  if (value) document.extractor.sep.value = "other";
+  }
+  
+  function numonly(value){
+  if (isNaN(value)) {
+      window.alert("Please enter a number or else \nleave blank for no grouping.");
+      document.extractor.groupby.focus();
+  }
+  }
+  
+  function findEmail() {
+  var email = "No email address detected";
+  var a = 0;
+  var ingroup = 0;
+  var separator = document.extractor.sep.value;
+  var groupby = Math.round(document.extractor.groupby.value);
+  
+  if (separator == "new") separator = "\n";
+  if (separator == "other") separator = document.extractor.othersep.value;
+  var rawemail = document.extractor.rawdata.value.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi);
+  var norepeat = new Array();
+  if (rawemail) {
+      for (var i=0; i<rawemail.length; i++) {
+          var repeat = 0;
+          
+          // Check for repeated emails routine
+          for (var j=i+1; j<rawemail.length; j++) {
+              if (rawemail[i] == rawemail[j]) {
+                  repeat++;
+              }
+          }
+          
+          // Create new array for non-repeated emails
+          if (repeat == 0) {
+              norepeat[a] = rawemail[i];
+              a++;
+          }
+      }
+      if (document.extractor.sort.checked) norepeat = norepeat.sort(); // Sort the array
+      email = "";
+      // Join emails together with separator
+      for (var k = 0; k < norepeat.length; k++) {
+          if (ingroup != 0) email += separator;
+          email += norepeat[k];
+          ingroup++;
+          
+          // Group emails if a number is specified in form. Each group will be separate by new line.
+          if (groupby) {
+              if (ingroup == groupby) {
+                  email += '\n\n';
+                  ingroup = 0;
+              }
+          }
+      }
+  }
+  
+  // Return array length
+  var count = norepeat.length;
+  
+  // Print results
+  document.extractor.count.value = count;
+  document.extractor.rawdata.value = email;
+  }
+  //  End -->
+    </script>
+  <style>
+  .post article table {border: 0; margin: 0}
+  .post article table.inner {
+      width: 100%;
+      margin: 20px 0px;
+      border: 0;
+      border-radius: 10px;
+      font-size: .9rem;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 6px 18px 0 rgba(9,32,76,.075);
+  }
+  .post article table tr:nth-child(2n) td {
+      background-color: transparent;
+      border-right: 0;
+  }
+  .post article table tr:nth-child(2n+1) td {
+      border-right: 0;
+  }
+  .hiuoee textarea:focus {
+      outline: 0;
+  }
+  
+  .hiuoee textarea {
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      font-size: 12px;
+  }
+  .hiuoee .submit {
+      outline: 0;
+      border: 0;
+      background-image: linear-gradient(50deg,rgba(255,65,108,.98),rgba(242,151,46,.98))!important;
+      background-image: -webkit-linear-gradient(50deg,rgba(255,65,108,.98),rgba(242,151,46,.98))!important;
+      background-color: transparent;
+      margin-bottom: 10px;
+      padding: 9px 20px;
+      border-radius: 10px;
+      font-size: .8rem;
+      line-height: 1.3rem;
+      background-color: #fff;
+      color: #fff;
+      cursor: pointer;
+  }
+  </style>
+                      
+                     <br /><h2 style="text-align: left;">
+                      Văn bản mẫu
+                      </h2><div><blockquote> Liên hệ thiết kế website: info1@gamil.com, info2@gamil.com, techinical@gamil.com . Đặt quảng cáo qua ads@gamil.com .</blockquote></div>
+       </div>
       </div>
       <!-- Modal -->
       <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">

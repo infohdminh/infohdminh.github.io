@@ -149,35 +149,84 @@
          </ul>
       </nav>
        <div class="content">
-        <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="act/countd/cd.css">
-    <title>Birthday Countdown</title>
-</head>
-<body>
-    <div class="container cdo">
-        <h1 id="headline">Countdown to MinhHandSome's birthday:</h1>
-        <div id="countdown">
-          <ul>
-            <li><span id="days"></span>days</li>
-            <li><span id="hours"></span>Hours</li>
-            <li><span id="minutes"></span>Minutes</li>
-            <li><span id="seconds"></span>Seconds</li>
-          </ul>
-        </div>
-        <div id="content" class="emoji">
-         
-          <span>🎉</span>
-          <span>🎂</span>
-        </div>
-      </div>
-      <script src="act/countd/cd.js"></script>
-</body>
-</html>
+        <style type="text/css"> 
+            textarea { font-family: "Arial Unicode MS", Batang }
+            </style> 
+            <script src="him.js" type="text/javascript"></script> 
+            <script language="JavaScript"> 
+            function flip() {
+             var result = flipString(document.f.original.value.toLowerCase());
+             document.f.flipped.value = result;
+            }
+            
+            function flipString(aString) {
+             var last = aString.length - 1;
+             var result = new Array(aString.length)
+             for (var i = last; i >= 0; --i) {
+              var c = aString.charAt(i)
+              var r = flipTable[c]
+              result[last - i] = r != undefined ? r : c
+             }
+             return result.join('')
+            }
+            var flipTable = {
+            a : '\u0250',
+            b : 'q',
+            c : '\u0254', //open o -- from pne
+            d : 'p',
+            e : '\u01DD',
+            f : '\u025F', //from pne
+            g : '\u0183',
+            h : '\u0265',
+            i : '\u0131', //from pne
+            j : '\u027E',
+            k : '\u029E',
+            //l : '\u0283',
+            m : '\u026F',
+            n : 'u',
+            r : '\u0279',
+            t : '\u0287',
+            v : '\u028C',
+            w : '\u028D',
+            y : '\u028E',
+            '.' : '\u02D9',
+            '[' : ']',
+            '(' : ')',
+            '{' : '}',
+            '?' : '\u00BF', //from pne
+            '!' : '\u00A1',
+            "\'" : ',',
+            '<' : '>',
+            '_' : '\u203E',
+            ';' : '\u061B',
+            '\u203F' : '\u2040',
+            '\u2045' : '\u2046',
+            '\u2234' : '\u2235',
+            '\r' : '\n' //Duyet lai- TeenCp.Net
+            }
+            
+            for (i in flipTable) {
+              flipTable[flipTable[i]] = i
+            }
+            
+            </script> 
+            <body background="bg.gif" style="background-color: white; color: #e01416;"> 
+            <center>
+            <h2>
+            Viết chữ ngược trực tuyến Online</h2>
+            <form name="f">
+            <table style="width: 500px;"><tbody>
+            <tr>         <td>Từ gốc:</td>          <td><textarea cols="55" name="original" onkeyup="flip()" rows="5">
+            Gợi ý: bạn cũng có thể nhập chữ ngược của bạn bè mình để giải mã....Chúc các bạn vui vẻ</textarea>  </td>        </tr>
+            <tr>         <td>Kết quả:</td>          <td><textarea cols="55" name="flipped" rows="5"></textarea></td>      </tr>
+            </tbody></table>
+            </form>
+            <center>
+            <input onclick="flip()" type="button" value="Enter!" /></center>
+            Có hỗ trợ tiếng việt
+            </center>
+            </body>
+            
       </div>
       <!-- Modal -->
       <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">

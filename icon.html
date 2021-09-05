@@ -151,33 +151,94 @@
        <div class="content">
         <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="act/countd/cd.css">
-    <title>Birthday Countdown</title>
-</head>
-<body>
-    <div class="container cdo">
-        <h1 id="headline">Countdown to MinhHandSome's birthday:</h1>
-        <div id="countdown">
-          <ul>
-            <li><span id="days"></span>days</li>
-            <li><span id="hours"></span>Hours</li>
-            <li><span id="minutes"></span>Minutes</li>
-            <li><span id="seconds"></span>Seconds</li>
-          </ul>
+    <head>
+      <style>
+      .intercom-composer-popover{z-index:2147483003;position:absolute;bottom:50px;right:calc(50% - 165px);box-shadow:0 1px 15px 1px rgba(0,0,0,.08);background-color:#fff;border-radius:6px;transition-duration:200ms;transition-delay:0ms;transform-style:flat;transform-origin:50% 50% 0;opacity:0;transition:all 0.2s linear;visibility:hidden}
+.intercom-composer-popover.active{visibility:visible;opacity:1;bottom:70px}
+.intercom-emoji-picker{width:330px;height:260px}
+.intercom-composer-popover-header{position:absolute;top:0;left:20px;right:20px;height:40px;border-bottom:1px solid #edeff1}
+.intercom-composer-popover-input{background-image:url(https://js.intercomcdn.com/images/search.7ae40c25.png);background-size:16px 16px;background-repeat:no-repeat;background-position:0 12px;font-weight:400;font-size:14px;color:#6e7a89;padding-left:25px;height:40px;width:100%;box-sizing:border-box;background-image:url(https://js.intercomcdn.com/images/search@2x.9f02b9f3.png);border:none;outline:none}
+.intercom-composer-popover-body{position:absolute;top:40px;left:0;right:0;bottom:5px;padding:0 20px;overflow-y:scroll}
+.intercom-emoji-picker-group{margin:10px -5px}
+.intercom-emoji-picker-group{margin:10px -5px}
+.intercom-emoji-picker-group-title{color:#b8c3ca;font-weight:400;font-size:13px;margin:5px}
+.intercom-emoji-picker-emoji{padding:5px;width:30px;line-height:30px;display:inline-table;text-align:center;cursor:pointer;vertical-align:middle;font-size:28px;transition:-webkit-transform 60ms ease-out;transition:transform 60ms ease-out;transition:transform 60ms ease-out,-webkit-transform 60ms ease-out;transition-delay:60ms;font-family:Apple Color Emoji,Segoe UI Emoji,NotoColorEmoji,Segoe UI Symbol,Android Emoji,EmojiSymbols}
+.chat-input-tool{background-color:#32A8E6;padding:5px;border:none;border-radius:5px;right:15px;position:absolute;outline:none}
+.intercom-composer-emoji-popover{right:15px}
+      </style>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+        <link href="https://cdn.jsdelivr.net/gh/thekondrashov/ie10-viewport@1.0/css/ie10-viewport.min.css" rel="stylesheet"/>
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="container col-md-12">
+            <div class="form-group">
+                <label for="origin-text" id="typeConvert">Nhập đoạn văn bản cần chuyển đổi: (Loại dịch: Tin nhắn ---> icon) <i>Vui chơi không cắm sừng</i></label>
+                <textarea class="form-control" rows="8" id="origin-text" style="font-size: 13pt ; font-family:Segoe UI Emoji"></textarea>
+            </div>
+            
+        <div class="intercom-composer-popover intercom-composer-emoji-popover">
+            <div class="intercom-emoji-picker">
+                <div class="intercom-composer-popover-header">
+                    <input class="intercom-composer-popover-input" placeholder="Nhập chữ cái để tìm icon" value=""/>
+                </div>
+                <div class="intercom-composer-popover-body-container">
+                    <div class="intercom-composer-popover-body">
+                        <div class="intercom-emoji-picker-groups">
+                            <div class="intercom-emoji-picker-group" >
+                                <span class="intercom-emoji-picker-emoji" title="Aa">😀</span>
+                                <span class="intercom-emoji-picker-emoji" title="Bb">😃</span>
+                                <span class="intercom-emoji-picker-emoji" title="Cc">😁</span>
+                                <span class="intercom-emoji-picker-emoji" title="Dd">😅</span>
+                                <span class="intercom-emoji-picker-emoji" title="Ee">🥰</span>
+                                <span class="intercom-emoji-picker-emoji" title="Ff">🤣</span>
+                                <span class="intercom-emoji-picker-emoji" title="Gg">🥲</span>
+                                <span class="intercom-emoji-picker-emoji" title="Hh">☺️</span>
+                                <span class="intercom-emoji-picker-emoji" title="Ii">😊</span>
+                                <span class="intercom-emoji-picker-emoji" title="Kk">😇</span>
+                                <span class="intercom-emoji-picker-emoji" title="Ll">😉</span>
+                                <span class="intercom-emoji-picker-emoji" title="Mm">😒</span>
+                                <span class="intercom-emoji-picker-emoji" title="Nn">😞</span>
+                                <span class="intercom-emoji-picker-emoji" title="Oo">😙</span>
+                                <span class="intercom-emoji-picker-emoji" title="Pp">😟</span>
+                                <span class="intercom-emoji-picker-emoji" title="Qq">😕</span>
+                                <span class="intercom-emoji-picker-emoji" title="Rr">🙂</span>
+                                <span class="intercom-emoji-picker-emoji" title="Ss">🙃</span>
+                                <span class="intercom-emoji-picker-emoji" title="Tt">☹️</span>
+                                <span class="intercom-emoji-picker-emoji" title="Uu">😡</span>
+                                <span class="intercom-emoji-picker-emoji" title="Vv">😍</span>
+                                <span class="intercom-emoji-picker-emoji" title="Xx">😩</span>
+                                <span class="intercom-emoji-picker-emoji" title="Yy">😭</span>
+                                <span class="intercom-emoji-picker-emoji" title="Ww">😳</span>
+                                <span class="intercom-emoji-picker-emoji" title="Zz">😠</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="intercom-composer-popover-caret"></div>
         </div>
-        <div id="content" class="emoji">
-         
-          <span>🎉</span>
-          <span>🎂</span>
-        </div>
-      </div>
-      <script src="act/countd/cd.js"></script>
-</body>
+            <div class="form-group">
+                <label for="converted-text">Kết quả:</label>
+                <button style="margin-bottom:0.5rem;" id="copy-result" class="btn btn-default">Sao chép</button>
+                <button style="margin-bottom:0.5rem;" id="transTypeBtn" class="btn btn-default">Chuyển loại dịch</button>
+                <button id="emoji-picker" class="chat-input-tool" title="Xh"> 
+                <svg preserveAspectRatio="xMidYMid" viewBox="0 0 24 24" style="width: 30px; height: 18px;">
+                    <path d="M12 24C5.38 24 0 18.62 0 12S5.38 0 12 0s12 5.38 12 12-5.38 12-12 12zm0-22C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-2.9 0-5.56-1.75-6.9-4.57-.24-.5-.03-1.1.47-1.33.5-.24 1.1-.03 1.33.47C7.9 16.67 9.86 18 12 18c2.15 0 4.1-1.3 5.1-3.43.23-.5.83-.7 1.33-.47.5.23.7.83.47 1.33C17.58 18.25 14.93 20 12 20zm4-8c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm-8 0c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z" fill="#fff"></path>
+                </svg>
+            </button>
+                <textarea readonly="true" class="form-control" rows="8" id="converted-text" style="font-size: 15pt ; font-family: Apple Color Emoji,Segoe UI Emoji,NotoColorEmoji,Segoe UI Symbol,Android Emoji,EmojiSymbols"></textarea>
+            </div>
+            
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" type="aa6269d4c73e18d55fc89e7f-text/javascript"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous" type="aa6269d4c73e18d55fc89e7f-text/javascript"></script>
+            <script src="https://cdn.jsdelivr.net/gh/thekondrashov/ie10-viewport@1.0/js/ie10-viewport.min.js" type="aa6269d4c73e18d55fc89e7f-text/javascript"></script>
+            <script type="text/javascript" src="https://quyt0.github.io/script.js"></script>
+            <script type="text/javascript" src="https://quyt0.github.io/emoji.js"></script>
+            <script src="https://ajax.cloudflare.com/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="aa6269d4c73e18d55fc89e7f-|49" defer=""></script>
+    </body>
 </html>
+
       </div>
       <!-- Modal -->
       <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">

@@ -149,35 +149,61 @@
          </ul>
       </nav>
        <div class="content">
-        <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="act/countd/cd.css">
-    <title>Birthday Countdown</title>
-</head>
-<body>
-    <div class="container cdo">
-        <h1 id="headline">Countdown to MinhHandSome's birthday:</h1>
-        <div id="countdown">
-          <ul>
-            <li><span id="days"></span>days</li>
-            <li><span id="hours"></span>Hours</li>
-            <li><span id="minutes"></span>Minutes</li>
-            <li><span id="seconds"></span>Seconds</li>
-          </ul>
-        </div>
-        <div id="content" class="emoji">
-         
-          <span>🎉</span>
-          <span>🎂</span>
-        </div>
-      </div>
-      <script src="act/countd/cd.js"></script>
-</body>
-</html>
+        <div class="separator" style="clear: both; text-align: center;">
+            <a href="http://4.bp.blogspot.com/-8fRiaU3i10k/VkCqfLPbnhI/AAAAAAAABKU/p-3KhB5Hx_k/s1600/thayboi.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="241" src="https://4.bp.blogspot.com/-8fRiaU3i10k/VkCqfLPbnhI/AAAAAAAABKU/p-3KhB5Hx_k/s320/thayboi.jpg" width="320" /></a></div>
+            <script language="JavaScript">
+           
+            var answers = new Array(
+            "thầy đang bận", 
+            "Kute mà hỏi gì mà khó vậy ta?", 
+            "mày định thử thầy à?", 
+            "số con chẳng giàu thì nghèo", 
+            "thầy không hiểu",
+            "Đúng Vậy", 
+            "con hỏi khó thật?",
+            "hỏi lại đi cưng", 
+            "thầy biết rùi nha", 
+            "thầy chịu",
+            "Con đang vào AdminHieu.Blogspot.com Đấy!",
+            "Haha chắc là vậy",
+            "Biêt mà còn hỏi",
+            "Cho xin 2 chữ bình yên",
+            "Chém vậy thôi má",
+            "Dua tien day thay noi cho",
+            "Hỏi ngu thế? ",
+            "Con cái nhà ai mà hổ báo vậy",
+            "Mày ở đâu dzậy con?",
+            "đúng rồi",
+            "thầy biết",
+            "vớ vẩn quá !!",
+            "thứ ngu",
+            "bi lừa roi !! Haha");
+            function fortune() {
+            num = Math.round( (answers.length - 1) * Math.random());
+            return answers[num];
+            }
+            // End -->
+            </script>
+            <style>
+              div#postMiddle img {
+                width: 400px!important;
+                height: auto;
+            }
+            </style>
+            
+            
+            <body>
+            <div class="phdr">
+            Xem Thầy  Phán Vui Nhộn</div>
+            <center>
+            <form>
+            Câu Hỏi Của Bạn: <input name="question" size="22" type="text" />
+            <input name="ask" onclick="if (this.form.question.value!='') this.form.answer.value = fortune();" type="button" value="Hỏi Thầy" /><br />
+            Thầy Phán: <input name="answer" size="22" type="text" />
+            </form>
+            </center>
+            </body>
+       </div>
       </div>
       <!-- Modal -->
       <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
